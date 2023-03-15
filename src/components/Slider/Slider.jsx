@@ -96,9 +96,6 @@ export const Slider = () => {
         const activeNextSlideRef = slideRef.current[activeIndex + 1];
         const activeSlideRef = slideRef.current[activeIndex];
         const prevSlideRef = slideRef.current[activeIndex - 1];
-        gsap.set(prevSlideRef,{
-            clipPath: "circle(15% at 80% 50%)",
-        })
         gsap.to(activeNextSlideRef, {
             clipPath: "circle(15% at 80% 50%)",
         })
@@ -108,6 +105,10 @@ export const Slider = () => {
             clipPath: "circle(72% at 80% 50%)",
         }).to(prevSlideRef, {
             clipPath: "circle(72% at 80% 50%)",
+        })
+        gsap.set(prevSlideRef,{
+            clipPath: "circle(15% at 80% 50%)",
+            delay: 1
         })
     }, [activeIndex]);
 
@@ -129,7 +130,7 @@ export const Slider = () => {
                             slidesPerView={1}
                             slidesPerGroup={1}
                             onSlideChange={() => animationHandler()}
-                            speed={1000}
+                            speed={700}
                             direction={"vertical"}
                             centeredSlides={true}
                         >
