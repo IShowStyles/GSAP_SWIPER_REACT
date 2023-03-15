@@ -72,14 +72,14 @@ export const Slider = () => {
         }
     };
 
-    useMemo(() => {
-        const tl = gsap.timeline({paused: true})
-        tl.to(wrapperRef.current, {
-            clipPath: "circle(15% at  80% 50%)"
-        }).to(wrapperRef.current, {
-            clipPath: "circle(100% at  80% 50%)"
-        })
-    }, []);
+    // useMemo(() => {
+    //     const tl = gsap.timeline({paused: true})
+    //     tl.to(wrapperRef.current, {
+    //         clipPath: "circle(15% at  80% 50%)"
+    //     }).to(wrapperRef.current, {
+    //         clipPath: "circle(100% at  80% 50%)"
+    //     })
+    // }, []);
     const tl = gsap.timeline({paused: true})
     const handleNextClick = () => {
         if (swiperRef.current !== null) {
@@ -97,17 +97,17 @@ export const Slider = () => {
         const activeSlideRef = slideRef.current[activeIndex];
         const prevSlideRef = slideRef.current[activeIndex - 1];
         gsap.to(activeNextSlideRef, {
-            clipPath: "circle(15% at 80% 50%)",
+            clipPath: "circle(15% at 50% 50%)",
         })
         tl.to(activeSlideRef, {
-            clipPath: "circle(15% at 80% 50%)",
+            clipPath: "circle(15% at 50% 50%)",
         }).to(activeNextSlideRef, {
             clipPath: "circle(72% at 80% 50%)",
         }).to(prevSlideRef, {
             clipPath: "circle(72% at 80% 50%)",
         })
         gsap.set(prevSlideRef,{
-            clipPath: "circle(15% at 80% 50%)",
+            clipPath: "circle(15% at 50% 50%)",
             delay: 1
         })
     }, [activeIndex]);
