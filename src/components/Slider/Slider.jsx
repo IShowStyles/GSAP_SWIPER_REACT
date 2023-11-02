@@ -72,14 +72,6 @@ export const Slider = () => {
         }
     };
 
-    // useMemo(() => {
-    //     const tl = gsap.timeline({paused: true})
-    //     tl.to(wrapperRef.current, {
-    //         clipPath: "circle(15% at  80% 50%)"
-    //     }).to(wrapperRef.current, {
-    //         clipPath: "circle(100% at  80% 50%)"
-    //     })
-    // }, []);
     const tl = gsap.timeline({paused: true})
     const handleNextClick = () => {
         if (swiperRef.current !== null) {
@@ -118,10 +110,10 @@ export const Slider = () => {
                 <div className="container--lg">
                     <div className="wrapper">
                         <div className="button-wrap">
-                            <button onClick={handlePrevClick} ref={prevRef}>
+                            <button className="button" onClick={handlePrevClick} ref={prevRef}>
                                 prev
                             </button>
-                            <button onClick={handleNextClick} ref={nextRef}>
+                            <button className="button ml-10" onClick={handleNextClick} ref={nextRef}>
                                 next
                             </button>
                         </div>
